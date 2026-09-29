@@ -1,0 +1,45 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.7.0",
+  "resource_changes": [
+    {
+      "address": "azurerm_linux_virtual_machine.app",
+      "type": "azurerm_linux_virtual_machine",
+      "change": {
+        "actions": ["update"],
+        "before": {
+          "size": "Standard_B1s",
+          "location": "East US"
+        },
+        "after": {
+          "size": "Standard_B2s",
+          "location": "East US"
+        }
+      }
+    },
+    {
+      "address": "azurerm_managed_disk.data",
+      "type": "azurerm_managed_disk",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "storage_account_type": "Premium_LRS",
+          "sku_name": "P10",
+          "disk_size_gb": 128,
+          "location": "East US"
+        }
+      }
+    },
+    {
+      "address": "azurerm_linux_virtual_machine.old",
+      "type": "azurerm_linux_virtual_machine",
+      "change": {
+        "actions": ["delete"],
+        "before": {
+          "size": "Standard_B1s",
+          "location": "East US"
+        }
+      }
+    }
+  ]
+}

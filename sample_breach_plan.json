@@ -1,0 +1,41 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.7.0",
+  "resource_changes": [
+    {
+      "address": "azurerm_linux_virtual_machine.gpu_worker",
+      "type": "azurerm_linux_virtual_machine",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "size": "Standard_D4s_v3",
+          "location": "East US"
+        }
+      }
+    },
+    {
+      "address": "azurerm_managed_disk.data_volume",
+      "type": "azurerm_managed_disk",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "storage_account_type": "Premium_LRS",
+          "sku_name": "P20",
+          "disk_size_gb": 512,
+          "location": "East US"
+        }
+      }
+    },
+    {
+      "address": "azurerm_linux_virtual_machine.old_instance",
+      "type": "azurerm_linux_virtual_machine",
+      "change": {
+        "actions": ["delete"],
+        "before": {
+          "size": "Standard_D2s_v3",
+          "location": "East US"
+        }
+      }
+    }
+  ]
+}
